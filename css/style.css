@@ -119,6 +119,9 @@ a {
 .highlight .strong {
   font-weight: bold;
 }
+.ascii-art {
+  white-space: pre;
+}
 .header {
   margin-bottom: 2em;
   padding: 0 20px;
