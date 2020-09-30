@@ -314,3 +314,6 @@ footer {
 footer .author {
   color: #000;
 }
+.ascii-art {
+  white-space: pre;
+}
