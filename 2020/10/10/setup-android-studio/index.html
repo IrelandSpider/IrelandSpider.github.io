@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>setup android studio - irelandspider&#39;Space</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content=irelandspider matt game programming adb java python>
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/image/favicon.png?v=1.02">
+  
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+  <body>
+    <div class="container">
+      <header class="header">
+  <div class="blog-title">
+    <a href="/" class="logo">irelandspider&#39;Space</a>
+    <div class="subtitle"></div>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      
+        <li class="menu-item">
+          <a href="/" class="menu-item-link">Home</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/archives" class="menu-item-link">Archives</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/AboutMe" class="menu-item-link">About Me</a>
+        </li>
+      
+        <li class="menu-item">
+          <a href="/skillTree" class="menu-item-link">Skill Tree</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<article class="post">
+  <div class="post-title">
+    <h1 class="article-title">setup android studio</h1>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2020-10-10</span>
+  </div>
+  <div class="post-content">
+    <ul>
+<li><p>precondition:win10,android studio 4.0.2.</p>
+</li>
+<li><p>situation:安装好了as,建立新项目就开始遇到问题，出现gradle同步失败，例如：</p>
+<ul>
+<li><blockquote>
+<p>Gradle sync failed: Could not HEAD <a target="_blank" rel="noopener" href="https://dl.google.com/dl/android/maven2/com/android/tools/build/gradle/3.1.0/gradle-3.1.0.pom">https://dl.google.com/dl/android/maven2/com/android/tools/build/gradle/3.1.0/gradle-3.1.0.pom</a></p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>task:上网查找了一翻后，把报错提示贴在网上答案基本都有，在 event log 里报错的例子如下：</p>
+<ul>
+<li><blockquote>
+<p>Gradle sync failed: No cached version of com.android.tools.build:gradle:4.0.2 available for offline mode.Consult IDE log for more details (Help | Show Log) (51 s 58 ms)</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>Gradle sync failed: Could not GET <a target="_blank" rel="noopener" href="https://dl.google.com/dl/android/maven2/com/android/tools/build/gradle/3.1.1/gradle-3.1.1.pom">https://dl.google.com/dl/android/maven2/com/android/tools/build/gradle/3.1.1/gradle-3.1.1.pom</a>. Received status code 400 from server: Bad Request.Consult IDE log for more details (Help | Show Log) (488 ms)</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>action:</p>
+<ul>
+<li>第一步：项目级build.gradle需要重新配置，具体配置放到[github] (<a target="_blank" rel="noopener" href="https://github.com/IrelandSpider/android-studio-config/tree/main),%E5%90%8E%E7%BB%AD%E7%9B%B4%E6%8E%A5git">https://github.com/IrelandSpider/android-studio-config/tree/main),后续直接git</a> clone 好了，大概就是使用阿里云镜像同步，配置文件使用的语法是groovy,后续有待研究</li>
+<li>第二步：android studio-&gt;file-&gt;settings-&gt;搜索proxy-&gt;单击manual proxy configuration-&gt;在host name填写mirrors.neusoft.edu.cn，端口不变，不明白为什么阿里云使用大连东软代理后续研究-&gt;apply-&gt;sync gradle<ul>
+<li>若 sync gradle 成功，event log 提示 Install successfully finished in 1 s 719 ms.</li>
+<li>若失败，看第三步</li>
+</ul>
+</li>
+<li>第三步：因为刚刚设置proxy,需要到%userprofile%/androidstudioproject/ 下有一个build.gradle,把systemProp.http*.proxy* 4行删除，保存</li>
+<li>第四步：打开%systemdrive%/system32/drivers/etc/ 下找一个hosts ,添加条dns: <code>203.208.40.101 dl.google.com</code> 在最后保存，在cmd刷新dns缓存：<code>ipconfig /flushdns</code>,点击sync gradle.</li>
+</ul>
+</li>
+<li><p>result: event log 最后显示 success 即可，踩过坑了，可以说第二部没有用，直接添加host 一条dns 开黑</p>
+</li>
+</ul>
+
+  </div>
+  <div class="post-footer">
+    
+
+    <a href="#top" class="top">Back to Top</a>
+  </div>
+</article>
+<footer>
+  &copy; 2020
+  <span class="author">
+    Matt
+  </span>
+</footer>
+    </div>
+  </body>
+</html>
