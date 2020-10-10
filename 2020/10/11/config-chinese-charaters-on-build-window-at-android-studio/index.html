@@ -6,7 +6,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   
-  <title>Archives - irelandspider&#39;Space</title>
+  <title>config chinese charaters on build window at android studio - irelandspider&#39;Space</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
   
   <meta name="keywords" content=irelandspider matt game programming adb java python>
@@ -49,35 +49,34 @@
     </ul>
   </nav>
 </header>
-<section class="archive">
-  <h1 class="article-title">Posts</h1>
-  <ul class="post-archive">
-    
-      <li class="post-item">
-        <a class="post-title" href="/2020/10/11/config-chinese-charaters-on-build-window-at-android-studio/">config chinese charaters on build window at android studio</a>
-        <time class="post-date">2020-10-11</time>
-      </li>
-    
-      <li class="post-item">
-        <a class="post-title" href="/2020/10/10/setup-android-studio/">setup android studio</a>
-        <time class="post-date">2020-10-10</time>
-      </li>
-    
-      <li class="post-item">
-        <a class="post-title" href="/2020/09/27/hello-but-not-to-the-world/">hello but not to the world</a>
-        <time class="post-date">2020-09-27</time>
-      </li>
-    
-  </ul>
-</section>
+<article class="post">
+  <div class="post-title">
+    <h1 class="article-title">config chinese charaters on build window at android studio</h1>
+  </div>
+   <div class="post-meta">
+    <span class="post-time">2020-10-11</span>
+  </div>
+  <div class="post-content">
+    <ul>
+<li>precondition: windows10 android studio 4.0.2</li>
+<li>situation: 使用android studio 进行编译项目，build 窗口有报错，但是是乱码</li>
+<li>task: 在 android studio 双击<code>shift</code>然后进行搜索<code>custom vm options</code>，然后重启android studio,会生成一个文件<code>studio64.exe.vmoptions</code>,在里面添加一行<code>-Dfile.encoding=UTF-8</code></li>
+<li>result:正确显示中文</li>
+</ul>
 
+  </div>
+  <div class="post-footer">
+    
+
+    <a href="#top" class="top">Back to Top</a>
+  </div>
+</article>
 <footer>
   &copy; 2020
   <span class="author">
     Matt
   </span>
 </footer>
-
     </div>
   </body>
 </html>
